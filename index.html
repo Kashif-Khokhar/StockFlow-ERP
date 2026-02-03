@@ -1,54 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StockFlow Pro | Warehouse Management</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="enterprise-wrapper">
-        <header class="top-bar">
-            <div class="brand">Stock<span class="text-blue">Flow</span> <span class="badge">ERP</span></div>
-            <div class="admin-profile">Logistics Lead: Kashif Ali</div>
-        </header>
-
-        <div class="main-layout">
-            <section class="control-panel">
-                <div class="card">
-                    <h3>Inventory Entry</h3>
-                    <div class="input-group">
-                        <input type="text" id="itemName" placeholder="Item Name (e.g. Hard Drive)">
-                        <input type="number" id="itemQty" placeholder="Quantity">
-                        <input type="number" id="itemPrice" placeholder="Unit Price (PKR)">
-                        <select id="itemStatus">
-                            <option value="In Stock">In Stock</option>
-                            <option value="On Order">On Order</option>
-                        </select>
-                        <button onclick="addItem()" class="btn-primary">Update Inventory</button>
-                    </div>
-                </div>
-            </section>
-
-            <section class="data-view">
-                <div class="card">
-                    <h3>Global Inventory Status</h3>
-                    <table class="stock-table">
-                        <thead>
-                            <tr>
-                                <th>Item ID</th>
-                                <th>Description</th>
-                                <th>Quantity</th>
-                                <th>Valuation</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="inventoryList"></tbody>
-                    </table>
-                </div>
-            </section>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

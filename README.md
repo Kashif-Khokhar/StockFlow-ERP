@@ -1,64 +1,85 @@
-📦 StockFlow Pro: Warehouse & Supply Chain Management
-StockFlow Pro is a comprehensive Warehouse Management System (WMS) designed to streamline inventory tracking and logistics operations. Built as an ERP-style solution, it provides real-time visibility into stock levels, valuation, and supply chain status, enabling businesses to manage their inventory with high precision.
+# StockFlow Pro | Modern Inventory & Supply Chain Management
 
-🚀 Live Demo
-Access the logistics dashboard here: https://kashif-khokhar.github.io/Inventory-Supply-Chain-Management/
+StockFlow Pro is a premium, modern ERP dashboard designed for efficient warehouse and supply chain management. Built with React and Vite, it offers a high-performance, responsive experience with a professional "Glassmorphism" aesthetic.
 
-✨ Key Features
-Inventory Entry System: Specialized interface to add and update stock items with detailed descriptions.
 
-Real-time Status Tracking: Monitor stock categories like "In Stock" and "On Order" dynamically.
+## 🚀 Features
 
-Global Inventory Ledger: A structured data table (Item ID, Description, Quantity, Valuation, and Status) for full warehouse transparency.
+- **Multi-View Dashboard**: Dedicated pages for Dashboard, Inventory Repository, and System Settings.
+- **Inventory Management**: Comprehensive SKU tracking with **Edit** and **Delete** capabilities.
+- **Real-time Analytics**: Dynamic stat cards and distribution charts showing warehouse health.
+- **Advanced Search & Filter**: Global searching by SKU/Item and low-stock filtering.
+- **System Localization**: Configurable organization name, admin profile, and currency settings.
+- **Data Portability**: JSON export functionality for warehouse data backups.
+- **Premium UI**: Professional "Glassmorphism" aesthetic with high-res branding and smooth transitions.
 
-Logistics Focused UI: A professional ERP-themed dashboard optimized for data-heavy management tasks.
+## 🛠️ Technology Stack
 
-Vanilla JS Logic: Efficient DOM manipulation and data handling without the overhead of heavy frameworks.
+- **Framework**: [React.js](https://reactjs.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Styling**: Premium CSS3 with CSS Variables & Glassmorphism
+- **Storage**: Browser LocalStorage for persistent data sync
 
-🛠️ Tech Stack
+## 📦 Getting Started
 
-HTML5: For structured data presentation and semantic layout.
+### Prerequisites
 
-CSS3: Professional dashboard styling with a focus on data organization and readability.
+- [Node.js](https://nodejs.org/) (v16.0.0 or higher)
+- npm or yarn
 
-JavaScript (Vanilla): Core logic for inventory updates, valuation calculations, and dynamic table rendering.
+### Installation
 
-Deployment: GitHub Pages.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Kashif-Khokhar/Inventory-Supply-Chain-Management.git
+   ```
 
-📦 Installation & Setup
-Since this is a client-side web application, it’s easy to run locally:
+2. Navigate to the project directory:
+   ```bash
+   cd Inventory-Supply-Chain-Management
+   ```
 
-Clone the Repository:
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Bash
-git clone https://github.com/kashif-khokhar/Inventory-Supply-Chain-Management.git
-Navigate to the Project Directory:
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Bash
-cd Inventory-Supply-Chain-Management
-Open the Project: Launch the index.html file in any modern web browser.
+5. Build for production:
+   ```bash
+   npm run build
+   ```
 
-📈 Future Roadmap
-Barcode Scanner Integration: Using the camera to scan and update inventory items instantly.
+## 📂 Project Structure
 
-Automated Low-Stock Alerts: Visual notifications when stock levels fall below a certain threshold.
+```text
+├── public/
+│   ├── favicon.png      # High-resolution branding
+│   └── manifest.json    # Web app configuration
+├── src/
+│   ├── views/           # Dedicated Page Views
+│   │   ├── DashboardView.jsx
+│   │   ├── InventoryView.jsx
+│   │   └── SettingsView.jsx
+│   ├── App.jsx          # Shell layout & global state
+│   ├── App.css          # Design system & animations
+│   ├── main.jsx         # React entry point
+│   └── index.css        # Global resets
+├── index.html           # Root HTML template
+├── vite.config.js       # Vite configuration
+└── package.json         # Dependencies & scripts
+```
 
-Data Persistence: Integration with LocalStorage to keep the inventory records saved.
+## 👤 Author
 
-Analytics Charts: Visualizing stock valuation and turnover rates using Chart.js.
+**Kashif Khokhar**
+- Logistics Lead & Full Stack Developer
 
-🤝 Contributing
-Contributions to enhance the supply chain logic or dashboard UI are welcome:
+## 📄 License
 
-Fork the Project
-
-Create your Feature Branch (git checkout -b feature/LogisticsUpdate)
-
-Commit your Changes (git commit -m 'Add LogisticsUpdate')
-
-Push to the Branch (git push origin feature/LogisticsUpdate)
-
-Open a Pull Request
-
-📄 License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
