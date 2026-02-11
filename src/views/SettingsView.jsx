@@ -32,10 +32,10 @@ function SettingsView({ settings, setSettings, inventory, setInventory, showToas
   };
 
   return (
-    <div className="view-fade-in" style={{ maxWidth: '900px' }}>
+    <div className="view-fade-in" style={{ maxWidth: '100%' }}>
       <section className="data-card">
         <h3><User size={24} color="#6366f1" /> System Localization</h3>
-        <div className="input-group" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
+        <div className="input-group" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px' }}>
           <div className="field">
             <label>Admin Display Name</label>
             <div className="input-with-icon">

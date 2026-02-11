@@ -16,7 +16,7 @@ function DashboardView({ inventory, stats, settings, onNavigate }) {
   const maxValue = categories.length > 0 ? Math.max(...categories.map(c => c.value)) : 0;
 
   return (
-    <div className="view-fade-in">
+    <div className="view-fade-in" style={{ maxWidth: '100%' }}>
       <div className="stats-grid">
         <div className="stat-card clickable" onClick={() => onNavigate('inventory')}>
           <div className="stat-info">

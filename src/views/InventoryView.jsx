@@ -80,7 +80,7 @@ function InventoryView({ inventory, setInventory, settings, showToast }) {
     : inventory;
 
   return (
-    <div className="view-fade-in">
+    <div className="view-fade-in" style={{ maxWidth: '100%' }}>
       <div className="content-grid">
         <section className="data-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>

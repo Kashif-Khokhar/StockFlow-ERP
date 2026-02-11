@@ -9,7 +9,10 @@ import {
   Briefcase,
   X,
   CheckCircle,
-  AlertTriangle
+  AlertTriangle,
+  ChevronLeft,
+  ChevronRight,
+  Menu
 } from 'lucide-react';
 import './App.css';
 
@@ -38,6 +41,8 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [toasts, setToasts] = useState([]);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem('stockflow_v1', JSON.stringify(inventory));
@@ -108,59 +113,86 @@ function App() {
   };
 
   return (
-    <div className="dashboard-container">
-      {/* Toast System */}
-      <div className="toast-container">
-        {toasts.map(toast => (
-          <div key={toast.id} className={`toast toast-${toast.type}`}>
-            {toast.type === 'success' ? <CheckCircle size={18} /> : <AlertTriangle size={18} />}
-            <span>{toast.message}</span>
-          </div>
-        ))}
-      </div>
+    <div className={`dashboard-container ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+      {/* Sidebar Overlay for Mobile */}
+      {isMobileMenuOpen && <div className="mobile-overlay" onClick={() => setIsMobileMenuOpen(false)}></div>}
 
       {/* Sidebar */}
-      <aside className="sidebar">
-        <div className="sidebar-brand" onClick={() => setActiveTab('dashboard')} style={{ cursor: 'pointer' }}>
-          <Boxes size={32} />
-          <div>{settings.orgName.split(' ')[0]}<span>{settings.orgName.split(' ')[1] || 'Flow'}</span></div>
+      <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''} ${isMobileMenuOpen ? 'show' : ''}`}>
+        <button 
+          className="sidebar-toggle" 
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+        >
+          {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
+        </button>
+
+        <div className="sidebar-header">
+          <div className="sidebar-brand" onClick={() => { setActiveTab('dashboard'); setIsMobileMenuOpen(false); }} style={{ cursor: 'pointer' }}>
+            <Boxes size={42} color="var(--primary-light)" style={{ filter: 'drop-shadow(0 0 10px rgba(129, 140, 248, 0.5))' }} />
+            {!isCollapsed && (
+              <div>{settings.orgName.split(' ')[0]}<span>{settings.orgName.split(' ')[1] || 'Flow'}</span></div>
+            )}
+          </div>
+          {isMobileMenuOpen && (
+            <button className="close-mobile-btn" onClick={() => setIsMobileMenuOpen(false)}>
+              <X size={24} color="white" />
+            </button>
+          )}
         </div>
         
         <nav className="nav-links">
           <div 
             className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`}
-            onClick={() => setActiveTab('dashboard')}
+            onClick={() => { setActiveTab('dashboard'); setIsMobileMenuOpen(false); }}
+            title={isCollapsed ? "Dashboard" : ""}
           >
             <LayoutDashboard size={20} />
-            <span>Dashboard</span>
+            {!isCollapsed && <span>Dashboard</span>}
           </div>
           <div 
             className={`nav-item ${activeTab === 'inventory' ? 'active' : ''}`}
-            onClick={() => setActiveTab('inventory')}
+            onClick={() => { setActiveTab('inventory'); setIsMobileMenuOpen(false); }}
+            title={isCollapsed ? "Inventory" : ""}
           >
             <Package size={20} />
-            <span>Inventory</span>
+            {!isCollapsed && <span>Inventory</span>}
           </div>
           <div 
             className={`nav-item ${activeTab === 'settings' ? 'active' : ''}`}
-            onClick={() => setActiveTab('settings')}
+            onClick={() => { setActiveTab('settings'); setIsMobileMenuOpen(false); }}
+            title={isCollapsed ? "Settings" : ""}
           >
             <Settings size={20} />
-            <span>Settings</span>
+            {!isCollapsed && <span>Settings</span>}
           </div>
         </nav>
 
-        <div style={{ marginTop: 'auto', padding: '10px' }}>
-           <div className="nav-item" onClick={() => showToast('Enterprise features coming soon!', 'warning')}>
+        <div style={{ marginTop: 'auto', padding: isCollapsed ? '0' : '10px' }}>
+           <div 
+            className="nav-item" 
+            onClick={() => { showToast('Enterprise features coming soon!', 'warning'); setIsMobileMenuOpen(false); }}
+            title={isCollapsed ? "Enterprise Plan" : ""}
+           >
              <Briefcase size={20} />
-             <span>Enterprise Plan</span>
+             {!isCollapsed && <span>Enterprise Plan</span>}
            </div>
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="main-content">
+      <main className={`main-content ${isCollapsed ? 'collapsed' : ''}`}>
         <header className="top-bar">
+          <div className="top-bar-left">
+            <button className="mobile-menu-btn" onClick={() => setIsMobileMenuOpen(true)}>
+              <Menu size={24} color="#64748b" />
+            </button>
+            <div className="mobile-brand">
+              <Boxes size={24} color="var(--primary)" />
+              <span>StockFlow</span>
+            </div>
+          </div>
+
           <div className="search-bar">
             <Search size={18} color="#64748b" />
             <input 
@@ -199,8 +231,11 @@ function App() {
             </div>
             
             <div className="admin-profile" onClick={() => setActiveTab('settings')} style={{ cursor: 'pointer' }}>
-              <p style={{ fontSize: '0.875rem', fontWeight: 600 }}>{settings.adminName}</p>
-              <p style={{ fontSize: '0.75rem', color: '#64748b' }}>Logistics Lead</p>
+              <div className="avatar-placeholder">{settings.adminName.charAt(0)}</div>
+              <div className="profile-info">
+                <p className="admin-name">{settings.adminName}</p>
+                <p className="admin-role">Logistics Lead</p>
+              </div>
             </div>
           </div>
         </header>
