@@ -2,16 +2,19 @@
 
 StockFlow Pro is a premium, modern ERP dashboard designed for efficient warehouse and supply chain management. Built with React and Vite, it offers a high-performance, responsive experience with a professional "Glassmorphism" aesthetic.
 
+[**🔗 View Live Demo**](https://stock-flow-erp-omega.vercel.app/)
 
 ## 🚀 Features
 
 - **Multi-View Dashboard**: Dedicated pages for Dashboard, Inventory Repository, and System Settings.
+- **Collapsible Sidebar**: Smart navigation with a floating toggle for maximum workspace efficiency.
+- **Full Mobile Responsiveness**: Premium mobile experience with a dedicated navigation drawer and sticky glassmorphism header.
 - **Inventory Management**: Comprehensive SKU tracking with **Edit** and **Delete** capabilities.
 - **Real-time Analytics**: Dynamic stat cards and distribution charts showing warehouse health.
 - **Advanced Search & Filter**: Global searching by SKU/Item and low-stock filtering.
 - **System Localization**: Configurable organization name, admin profile, and currency settings.
 - **Data Portability**: JSON export functionality for warehouse data backups.
-- **Premium UI**: Professional "Glassmorphism" aesthetic with high-res branding and smooth transitions.
+- **Premium UI**: Professional "Glassmorphism" aesthetic with high-res branding, smooth transitions, and global width optimization.
 
 ## 🛠️ Technology Stack
 
